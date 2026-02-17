@@ -8,7 +8,7 @@ import com.lkby.tracker.domain.usecase.model.CreateTournamentParams
 import com.lkby.tracker.domain.util.IdGenerator
 
 internal class TournamentRepositoryImpl(
-    private val remoteDataSource: TournamentDataSource
+    private val dataSource: TournamentDataSource
 ): TournamentRepository {
 
     companion object {
@@ -27,7 +27,7 @@ internal class TournamentRepositoryImpl(
                 createdAt = System.currentTimeMillis()
             )
 
-            val success = remoteDataSource.createTournamentWithUniqueId(tournament.toDto())
+            val success = dataSource.createTournamentWithUniqueId(tournament.toDto())
 
             if(success)
                 return Result.success(tournament)
