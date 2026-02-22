@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Beyblade Tracker</string>
+    <string name="app_name">BladeTrack</string>
+    <string name="default_web_client_id">316866573136-qa0tilveogtka9h3u15ki4thtdbgba01.apps.googleusercontent.com</string>
 </resources>

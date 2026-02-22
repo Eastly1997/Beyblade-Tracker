@@ -1,26 +1,35 @@
-*.iml
-.gradle
-/local.properties
-local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
+# Gradle
+.gradle/
+build/
 */build/
-/captures
-.externalNativeBuild
-.cxx
-google-services.json
-*.log
-Thumbs.db
-*.class
+
+# Local configuration
+local.properties
+
+# Android Studio
+.idea/
+*.iml
+
+# Compose compiler
+.compose/
+
+# Native build
+.externalNativeBuild/
+.cxx/
+
+# Captures
 captures/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Java/Kotlin compiled files
+*.class
+
+# Keystore files
 *.jks
 *.keystore
-.compose/
-.idea/
-.gradle/

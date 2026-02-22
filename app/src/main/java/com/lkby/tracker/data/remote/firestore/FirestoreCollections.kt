@@ -1,6 +1,7 @@
 package com.lkby.tracker.data.remote.firestore
 
 internal object FirestoreCollections {
-    const val COLLECTION_TOURNAMENTS = "tournaments"
+    const val TOURNAMENTS = "tournaments"
+    const val USERS = "users"
 
 }
