@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "700733040627",
+    "project_id": "beyblade-x-tracker",
+    "storage_bucket": "beyblade-x-tracker.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:700733040627:android:c1aa42a08af95105839486",
+        "android_client_info": {
+          "package_name": "com.lkby.tracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA58bjIeejmBz4iEaDH-VVjlyfxx3W9mEQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
