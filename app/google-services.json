@@ -12,7 +12,20 @@
           "package_name": "com.lkby.tracker"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "700733040627-vbgd7uuus5r70lacvi2f7h5484bdmmqr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lkby.tracker",
+            "certificate_hash": "230227f6aecc43d652b4ac3cc939427ab322fbdd"
+          }
+        },
+        {
+          "client_id": "700733040627-6cnju0mmnktphpb27ov3hann0a9nnaag.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyA58bjIeejmBz4iEaDH-VVjlyfxx3W9mEQ"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "700733040627-6cnju0mmnktphpb27ov3hann0a9nnaag.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

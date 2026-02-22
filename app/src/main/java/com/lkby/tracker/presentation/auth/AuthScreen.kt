@@ -4,6 +4,7 @@ import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -12,6 +13,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -20,6 +22,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -33,14 +36,18 @@ import androidx.credentials.CredentialManager
 import androidx.credentials.CustomCredential
 import androidx.credentials.GetCredentialRequest
 import androidx.credentials.exceptions.GetCredentialCancellationException
+import androidx.navigation.NavController
 import com.google.android.libraries.identity.googleid.GetGoogleIdOption
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
 import com.lkby.tracker.R
+import com.lkby.tracker.presentation.navigation.Route
+import com.lkby.tracker.presentation.ui.loginBackground
 import com.lkby.tracker.ui.theme.BeybladeTrackerTheme
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun AuthScreen(
+    navController: NavController,
     viewModel: AuthViewModel = koinViewModel()
 ) {
     val state by viewModel.state.collectAsState()
@@ -100,7 +107,11 @@ fun AuthScreen(
                     }
                 }
                 AuthEffect.NavigateToHome -> {
-
+                    navController.navigate(Route.Home.value) {
+                        popUpTo(Route.Auth.value) {
+                            inclusive = true
+                        }
+                    }
                 }
                 is AuthEffect.ShowError -> {
                     Toast.makeText(
@@ -176,17 +187,29 @@ private fun GoogleButton(
     enabled: Boolean,
     onClick: () -> Unit
 ) {
-    Image(
-        painter = painterResource(R.drawable.google_signin_button),
-        contentDescription = "Continue with Google",
+    Box(
         modifier = Modifier
+            .padding(bottom = 50.dp)
             .fillMaxWidth()
             .height(56.dp)
+            .clip(RoundedCornerShape(4.dp))
             .clickable(
-                enabled = enabled
-            ) { onClick() },
-        alpha = if(enabled) 1f else 0.5f
-    )
+                enabled = enabled,
+                indication = null,
+                interactionSource = remember { MutableInteractionSource() }
+            ) {
+                onClick()
+            }
+    ) {
+
+        Image(
+            painter = painterResource(R.drawable.google_signin_button),
+            contentDescription = "Continue with Google",
+            modifier = Modifier.fillMaxSize(),
+            alpha = if (enabled) 1f else 0.5f
+        )
+
+    }
 }
 @Composable
 private fun Header() {
@@ -218,16 +241,6 @@ private fun Header() {
     }
 }
 
-private fun loginBackground(): Brush {
-
-    return Brush.verticalGradient(
-        colors = listOf(
-            Color(0xFF0D1B2A),
-            Color(0xFF1B263B),
-            Color(0xFF415A77)
-        )
-    )
-}
 @Preview(showBackground = true)
 @Composable
 fun AuthScreenPreview() {

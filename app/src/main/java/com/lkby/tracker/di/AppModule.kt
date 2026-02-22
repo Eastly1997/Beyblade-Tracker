@@ -4,5 +4,6 @@ val appModule = listOf(
     firebaseModule,
     remoteDataSourceModule,
     repositoryModule,
-    useCaseModule
+    useCaseModule,
+    viewModelModule
 )

@@ -1,12 +1,13 @@
 package com.lkby.tracker.presentation.auth
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.lkby.tracker.domain.usecase.SignInWithGoogleUseCase
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -20,6 +21,10 @@ class AuthViewModel(
     private val _effect = Channel<AuthEffect>()
     val effect = _effect.receiveAsFlow()
 
+    companion object {
+        private const val TAG = "AuthViewModel"
+    }
+
     fun handleIntent(intent: AuthIntent) {
         when (intent) {
             is AuthIntent.SignInWithGoogleClicked -> {
@@ -28,7 +33,7 @@ class AuthViewModel(
             is AuthIntent.GoogleTokenReceived -> {
                 signInWithGoogle(intent.idToken)
             }
-            }
+        }
     }
 
     private fun launchGoogleSignIn() {
@@ -55,6 +60,7 @@ class AuthViewModel(
 
             signInWithGoogleUseCase(idToken)
                 .onSuccess {
+                    Log.d(TAG, "signIn Success")
                     _state.update {
                         it.copy(
                             isLoading = false,
@@ -65,6 +71,8 @@ class AuthViewModel(
                     _effect.send(AuthEffect.NavigateToHome)
                 }
                 .onFailure { error ->
+                    Log.d(TAG, "signIn Failed with ${error.message}")
+
                     val message = error.message ?: "Sign-in failed"
                     _state.update {
                         it.copy(
