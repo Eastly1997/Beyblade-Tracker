@@ -4,21 +4,17 @@ import com.lkby.tracker.domain.model.EntranceBenefit
 import com.lkby.tracker.domain.model.EntranceFee
 import com.lkby.tracker.domain.model.PreRegistration
 import com.lkby.tracker.domain.model.PrizePool
-import com.lkby.tracker.domain.model.TournamentFormat
 import com.lkby.tracker.domain.model.TournamentLocation
-import com.lkby.tracker.domain.model.TournamentType
 
-data class CreateTournamentParams(
+data class UpdateTournamentParams(
+    val tournamentId: String,
     val name: String,
     val description: String,
-    val organizerId: String,
-    val type: TournamentType,
-    val format: TournamentFormat,
-    val maxParticipants: Int,
-    val startTime: Long,
     val location: TournamentLocation,
     val entranceFee: EntranceFee,
-    val entranceBenefit: List<EntranceBenefit>,
+    val entranceBenefits: List<EntranceBenefit>,
     val preRegistration: PreRegistration?,
-    val prizePool: PrizePool
+    val prizePool: PrizePool,
+    val maxParticipants: Int,
+    val startTime: Long
 )

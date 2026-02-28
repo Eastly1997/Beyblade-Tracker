@@ -1,14 +1,9 @@
-package com.lkby.tracker.data.remote.auth.firebase
+package com.lkby.tracker.data.remote.auth
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
-import com.google.firebase.firestore.FirebaseFirestore
-import com.lkby.tracker.data.remote.auth.AuthDataSource
 import com.lkby.tracker.data.remote.auth.model.FirebaseAuthResult
-import com.lkby.tracker.data.remote.user.model.UserDto
-import com.lkby.tracker.data.remote.firestore.FirestoreCollections
-import com.lkby.tracker.domain.model.User
 import kotlinx.coroutines.tasks.await
 
 internal class FirebaseAuthDataSource(
