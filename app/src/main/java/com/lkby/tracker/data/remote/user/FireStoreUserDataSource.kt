@@ -1,9 +1,8 @@
-package com.lkby.tracker.data.remote.user.firebase
+package com.lkby.tracker.data.remote.user
 
 import android.util.Log
 import com.google.firebase.firestore.FirebaseFirestore
 import com.lkby.tracker.data.remote.firestore.FirestoreCollections
-import com.lkby.tracker.data.remote.user.UserDataSource
 import com.lkby.tracker.data.remote.user.model.UserDto
 import kotlinx.coroutines.tasks.await
 

@@ -5,6 +5,14 @@ import com.lkby.tracker.domain.usecase.model.CreateTournamentParams
 
 interface TournamentRepository {
     suspend fun createTournament(
-        params: CreateTournamentParams
+        tournament: Tournament
+    ): Result<Unit>
+
+    suspend fun updateTournament(
+        tournament: Tournament
+    ): Result<Unit>
+
+    suspend fun getTournamentById(
+        tournamentId: String
     ): Result<Tournament>
 }
