@@ -24,3 +24,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "Beyblade Tracker"
 include(":app")
+include(":feature:tournament")
+include(":feature:auth")
+include(":common")

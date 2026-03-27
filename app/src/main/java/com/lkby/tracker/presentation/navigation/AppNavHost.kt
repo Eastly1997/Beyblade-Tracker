@@ -6,7 +6,9 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.lkby.tracker.presentation.auth.AuthScreen
+import com.lkby.common.navigation.Route
+import com.lkby.feature.auth.authScreen
+import com.lkby.feature.tournament.createTournamentScreen
 import com.lkby.tracker.presentation.home.HomeScreen
 import com.lkby.tracker.presentation.splash.SplashScreen
 
@@ -23,18 +25,12 @@ fun AppNavHost(
         modifier = modifier
     ) {
 
-        composable(Route.Splash.value) {
-            SplashScreen(navController)
-        }
 
-        composable(Route.Auth.value) {
-            AuthScreen(navController)
-        }
+        composable(Route.Splash.value) { SplashScreen(navController) }
+        composable(Route.Home.value) { HomeScreen() }
 
-        composable(Route.Home.value) {
-            HomeScreen()
-        }
-
+        authScreen(navController)
+        createTournamentScreen(navController)
     }
 
 }
