@@ -2,7 +2,7 @@ package com.lkby.tracker.presentation.splash
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.lkby.tracker.domain.usecase.GetCurrentUserUseCase
+import com.lkby.feature.auth.domain.usecase.GetCurrentUserUseCase
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
@@ -15,7 +15,7 @@ class SplashViewModel(
     val effect = _effect.receiveAsFlow()
 
     companion object {
-        private const val MIN_SPLASH_DURATION = 2000L
+        private const  val MIN_SPLASH_DURATION = 2000L
     }
 
     init {

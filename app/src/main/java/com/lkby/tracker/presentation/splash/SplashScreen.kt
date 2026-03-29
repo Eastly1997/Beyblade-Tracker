@@ -26,15 +26,15 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.lkby.tracker.R
-import com.lkby.tracker.presentation.navigation.Route
+import com.lkby.common.navigation.Route
 import com.lkby.tracker.presentation.ui.loginBackground
-import com.lkby.tracker.ui.theme.BeybladeTrackerTheme
 import org.koin.androidx.compose.koinViewModel
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
+import com.lkby.common.theme.BeybladeTrackerTheme
 
 @Composable
 fun SplashScreen(
@@ -45,7 +45,7 @@ fun SplashScreen(
         viewModel.effect.collect { effect ->
             when(effect) {
                 SplashEffect.NavigateToHome -> {
-                    navController.navigate(Route.Home.value) {
+                    navController.navigate(Route.CreateTournament.value) {
                         popUpTo(Route.Splash.value) { inclusive = true }
                     }
                 }

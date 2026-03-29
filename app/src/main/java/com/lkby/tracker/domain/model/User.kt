@@ -1,9 +1,0 @@
-package com.lkby.tracker.domain.model
-
-data class User(
-    val uid: String,
-    val name: String?,
-    val email: String?,
-    val photoUrl: String?,
-    val createdAt: Long? = null
-)
