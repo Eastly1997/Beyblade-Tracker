@@ -1,4 +1,4 @@
-package com.lkby.common.theme
+package com.lkby.common.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
@@ -18,11 +18,11 @@ val PurpleDark = Color(0xFF5B21B6)
 val ElectricBlue = Color(0xFF22D3EE)
 
 // Backgrounds
-val BackgroundLight = Color(0xFFF1F3F9)
+val BackgroundLight = Color(0xFFF1F5F9)
 val BackgroundDark = Color(0xFF0B1220)
 val SurfaceLight = Color(0xFFFFFFFF)
 val SurfaceDark = Color(0xFF111827)
-val BorderSubtle = Color(0xFF1F2937)
+val BorderSubtle = Color(0xFFE5E7EB)
 val SurfaceVariant = Color(0xFFE5E7EB)
 
 // Text

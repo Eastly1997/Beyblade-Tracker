@@ -34,7 +34,7 @@ import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
-import com.lkby.common.theme.BeybladeTrackerTheme
+import com.lkby.common.ui.theme.BeybladeTrackerTheme
 
 @Composable
 fun SplashScreen(
@@ -44,15 +44,17 @@ fun SplashScreen(
     LaunchedEffect(viewModel) {
         viewModel.effect.collect { effect ->
             when(effect) {
-                SplashEffect.NavigateToHome -> {
-                    navController.navigate(Route.CreateTournament.value) {
-                        popUpTo(Route.Splash.value) { inclusive = true }
+                is SplashEffect.NavigateToHome -> {
+                    // Navigate using an instance of the route data class
+                    navController.navigate(Route.CreateTournament(userId = effect.userId)) {
+                        popUpTo<Route.Splash> { inclusive = true }
                     }
                 }
 
                 SplashEffect.NavigateToAuth -> {
-                    navController.navigate(Route.Auth.value) {
-                        popUpTo(Route.Splash.value) { inclusive = true }
+                    // Navigate using the object instance
+                    navController.navigate(Route.Auth) {
+                        popUpTo<Route.Splash> { inclusive = true }
                     }
                 }
             }

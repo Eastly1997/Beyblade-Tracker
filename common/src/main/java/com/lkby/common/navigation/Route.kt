@@ -1,10 +1,18 @@
 package com.lkby.common.navigation
 
-sealed class Route(val value: String) {
-    object Splash: Route("splash")
-    object Auth: Route("auth")
-    object Home: Route("home")
-    object CreateTournament: Route("tournament_create/{userId}") {
-        fun createRoute(userId: String) = "tournament_create/$userId"
-    }
+import kotlinx.serialization.Serializable
+
+@Serializable
+sealed interface Route {
+    @Serializable
+    data object Splash : Route
+
+    @Serializable
+    data object Auth : Route
+
+    @Serializable
+    data object Home : Route
+
+    @Serializable
+    data class CreateTournament(val userId: String) : Route
 }
