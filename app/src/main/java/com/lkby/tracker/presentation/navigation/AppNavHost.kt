@@ -1,6 +1,5 @@
 package com.lkby.tracker.presentation.navigation
 
-
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
@@ -16,21 +15,17 @@ import com.lkby.tracker.presentation.splash.SplashScreen
 fun AppNavHost(
     modifier: Modifier = Modifier
 ) {
-
     val navController = rememberNavController()
 
     NavHost(
         navController = navController,
-        startDestination = Route.Splash.value,
+        startDestination = Route.Splash,
         modifier = modifier
     ) {
-
-
-        composable(Route.Splash.value) { SplashScreen(navController) }
-        composable(Route.Home.value) { HomeScreen() }
+        composable<Route.Splash> { SplashScreen(navController) }
+        composable<Route.Home> { HomeScreen() }
 
         authScreen(navController)
         createTournamentScreen(navController)
     }
-
 }

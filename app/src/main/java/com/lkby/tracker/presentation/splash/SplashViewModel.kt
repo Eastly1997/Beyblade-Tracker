@@ -15,7 +15,7 @@ class SplashViewModel(
     val effect = _effect.receiveAsFlow()
 
     companion object {
-        private const  val MIN_SPLASH_DURATION = 2000L
+        private const val MIN_SPLASH_DURATION = 2000L
     }
 
     init {
@@ -36,7 +36,7 @@ class SplashViewModel(
             }
 
             if(user != null) {
-                _effect.send(SplashEffect.NavigateToHome)
+                _effect.send(SplashEffect.NavigateToHome(user.uid))
             } else {
                 _effect.send(SplashEffect.NavigateToAuth)
             }

@@ -1,5 +1,6 @@
 package com.lkby.feature.tournament.data.mapper
 
+import com.lkby.common.extensions.safeEnumValueOf
 import com.lkby.feature.tournament.data.remote.tournament.model.EntranceFeeDto
 import com.lkby.feature.tournament.domain.model.EntranceFee
 import com.lkby.feature.tournament.domain.model.PaymentMethod

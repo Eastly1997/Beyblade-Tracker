@@ -7,7 +7,7 @@ import com.lkby.common.navigation.Route
 import com.lkby.feature.auth.presentation.auth.AuthScreen
 
 fun NavGraphBuilder.authScreen(navController: NavController) {
-    composable(Route.Auth.value) {
+    composable<Route.Auth> {
         AuthScreen(navController = navController)
     }
 }

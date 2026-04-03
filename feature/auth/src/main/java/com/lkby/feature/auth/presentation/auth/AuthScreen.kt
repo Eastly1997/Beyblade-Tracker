@@ -39,7 +39,7 @@ import androidx.navigation.NavController
 import com.google.android.libraries.identity.googleid.GetGoogleIdOption
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
 import com.lkby.common.navigation.Route
-import com.lkby.common.theme.BeybladeTrackerTheme
+import com.lkby.common.ui.theme.BeybladeTrackerTheme
 import com.lkby.feature.auth.R
 import com.lkby.feature.auth.presentation.ui.loginBackground
 import org.koin.androidx.compose.koinViewModel
@@ -106,8 +106,8 @@ fun AuthScreen(
                     }
                 }
                 AuthEffect.NavigateToHome -> {
-                    navController.navigate(Route.Home.value) {
-                        popUpTo(Route.Auth.value) {
+                    navController.navigate(Route.Home) {
+                        popUpTo(Route.Auth) {
                             inclusive = true
                         }
                     }

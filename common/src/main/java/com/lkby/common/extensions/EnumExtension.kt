@@ -2,7 +2,7 @@ package com.lkby.common.extensions
 
 import android.util.Log
 
-internal inline fun <reified T : Enum<T>> safeEnumValueOf(
+inline fun <reified T : Enum<T>> safeEnumValueOf(
     value: String,
     default: T
 ): T {
